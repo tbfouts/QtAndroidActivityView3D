@@ -1,0 +1,37 @@
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
+
+import QtQuick
+import QtQuick.Controls
+import ActivityViewDemo
+import QtAndroidAutomotive.ActivityView
+
+Window {
+    visible: true
+    width: 1920
+    height: 1080
+    title: "ActivityViewDemo"
+    visibility: Qt.platform.os === 'android' ? Window.FullScreen : Window.AutomaticVisibility
+
+    ActivityView {
+        id: activityView
+
+        packageName: "com.UnityTechnologies.MoonLander"
+        anchors.fill: parent
+
+        Screen01 {
+            id: mainScreen
+            anchors.centerIn: parent
+
+                transform: Scale {
+                    origin.x: mainScreen.width / 2
+                    origin.y: mainScreen.height / 2
+                    readonly property real xRatio: activityView.width / mainScreen.width
+                    readonly property real yRatio: activityView.height / mainScreen.height
+                    xScale: Math.min(xRatio, yRatio)
+                    yScale: Math.min(xRatio, yRatio)
+                }
+            }
+    }
+}
+
