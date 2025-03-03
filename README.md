@@ -9,7 +9,7 @@ This project was created as a demonstration of integration of a Qt 2D UI with a 
 ## Prerequisites
 In order to successfully build and run this demo the following are required:
 
-*Qt 6.8 or later (including Qt for Android Automotive)
-*Qt Creator (with Android Kit setup)
-*An Android Automotive OS device with a valid platform key to sign the APK
+* Qt 6.8 or later (including Qt for Android Automotive)
+* Qt Creator (with Android Kit setup)
+* An Android Automotive OS device with a valid platform key to sign the APK
 
