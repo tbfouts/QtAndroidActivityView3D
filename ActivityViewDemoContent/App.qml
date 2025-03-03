@@ -11,18 +11,21 @@ Window {
     width: 1920
     height: 1080
     title: "ActivityViewDemo"
-    visibility: Qt.platform.os === 'android' ? Window.FullScreen : Window.AutomaticVisibility
+    visibility:  Window.FullScreen
 
     ActivityView {
         id: activityView
 
+        // package name of APK for 3D scene
         packageName: "com.UnityTechnologies.MoonLander"
         anchors.fill: parent
 
+        // entry point for 2D Figma UI from Design Studio
         Screen01 {
             id: mainScreen
             anchors.centerIn: parent
 
+                // add scaling to support various screen sizes
                 transform: Scale {
                     origin.x: mainScreen.width / 2
                     origin.y: mainScreen.height / 2
@@ -33,11 +36,5 @@ Window {
                 }
             }
     }
-
-    // Screen01 {
-    //     id: mainScreen
-    //     anchors.centerIn: parent
-
-    //     }
 }
 
