@@ -6,30 +6,45 @@ Rectangle {
     width: 1920
     height: 1080
     color: "transparent"
+    property bool showControls: false
 
     EMW {
         id: eMW
         width: 568
         height: 228
-        opacity: 1
+        opacity: showControls ? 1 : 0
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.leftMargin: 30
         anchors.topMargin: 725
         clip: true
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+                easing.type: Easing.InOutQuad
+            }
+        }
     }
 
     OLW {
         id: oLW
         width: 568
         height: 584
-        opacity: 1
+        opacity: showControls ? 1 : 0
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.leftMargin: 30
         anchors.topMargin: 124
         //txtCampCourtText: "Night Mode"
         clip: true
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+                easing.type: Easing.InOutQuad
+            }
+        }
     }
 
     BottomBar {

@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls
 import ActivityViewDemo
 import QtAndroidAutomotive.ActivityView
+import QtAndroidAutomotive.Base
 
 Window {
     visible: true
@@ -17,7 +18,7 @@ Window {
         id: activityView
 
         // package name of APK for 3D scene
-        packageName: "com.UnityTechnologies.MoonLander"
+        packageName: "com.qt.MoonLander"
         anchors.fill: parent
 
         // entry point for 2D Figma UI from Design Studio
@@ -35,6 +36,30 @@ Window {
                     yScale: Math.min(xRatio, yRatio)
                 }
             }
+    }
+
+    // Add a new AndroidBroadcastReceiver for Unity splash complete
+    AndroidBroadcastReceiver {
+        id: unitySplashReceiver
+        AndroidIntentFilter {
+            actions: [
+                "com.qt.UNITY_SPLASH_COMPLETE"  // The action we defined in Unity
+            ]
+            // No need for dataAuthorities, dataPaths, or dataSchemes for this broadcast
+        }
+
+        onReceived: function(intent) {
+            // Check for and log the timestamp extra if it exists
+            if (intent.extras.hasOwnProperty("timestamp")) {
+                console.log("Unity splash completed at:", intent.extras.timestamp)
+            }
+
+            mainScreen.splashScreenComplete = true
+
+            // Set a property or call a function to update your UI
+            // root.unitySplashCompleted = true
+            // handleUnitySplashComplete()
+        }
     }
 }
 

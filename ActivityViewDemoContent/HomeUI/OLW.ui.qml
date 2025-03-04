@@ -5,7 +5,6 @@ Rectangle {
     id: oLW
     width: 568
     height: 584
-    opacity: 0.85
     color: "transparent"
     property alias onRoadText: onRoad.text
 
@@ -13,7 +12,7 @@ Rectangle {
         id: driveModeWidget
         width: 568
         height: 584
-        opacity: 0.489
+        opacity: .5
         color: "#fca0a0a0"
         radius: 20
         anchors.left: parent.left

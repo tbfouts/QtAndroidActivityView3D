@@ -15,12 +15,14 @@ Rectangle {
     id: rectangle
     width: Constants.width
     height: Constants.height
+    property bool splashScreenComplete: false
 
     // transparency enabled so background 3D content can be seen/interacted with
     color: "transparent"
 
     HomeUI {
         id: homeUI
+        showControls: splashScreenComplete
     }
 }
 

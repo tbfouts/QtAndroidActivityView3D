@@ -5,6 +5,7 @@ Rectangle {
     id: eMW
     width: 568
     height: 228
+    opacity: .85
     color: "transparent"
     property alias txtEnergyMgmtText: txtEnergyMgmt.text
 
