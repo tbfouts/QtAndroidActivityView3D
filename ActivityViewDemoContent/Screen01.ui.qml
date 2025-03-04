@@ -9,7 +9,6 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 import QtQuick
 import QtQuick.Controls
 import ActivityViewDemo
-import "evHomeScreen"
 import "HomeUI"
 
 Rectangle {
@@ -17,6 +16,7 @@ Rectangle {
     width: Constants.width
     height: Constants.height
 
+    // transparency enabled so background 3D content can be seen/interacted with
     color: "transparent"
 
     HomeUI {
@@ -29,3 +29,4 @@ Designer {
     D{i:0}D{i:1;invisible:true}
 }
 ##^##*/
+
